@@ -28,7 +28,7 @@ export const PlaceholderController: React.FC<Props> = ({
   return (
     <div>
       {
-        showPlaceholder ? [...new Array(numberOfRows)].map((_, i) => i).map(() => <div key="">{placeholder}</div>) : children
+        showPlaceholder ? [...new Array(numberOfRows)].map((_, i) => i).map((key) => <React.Fragment key={key}>{placeholder}</React.Fragment>) : children
     }
     </div>
   );
