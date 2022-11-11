@@ -1,0 +1,23 @@
+@import "../../assets/variables";
+@import "../../assets/mixins";
+
+.placeholder {
+  background-color: @background-placeholder;
+  opacity: .1;
+  animation: fading 1s infinite;
+  .place-center();
+}
+
+@keyframes fading {
+  0% {
+    opacity: .1;
+  }
+  
+  50% {
+    opacity: .2;
+  }
+  
+  100% {
+    opacity: .1;
+  }
+}

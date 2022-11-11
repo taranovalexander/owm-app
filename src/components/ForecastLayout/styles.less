@@ -1,0 +1,44 @@
+@import "../../assets/mixins";
+@import "../../assets/variables";
+
+@border-radius-outer: 0.5rem;
+@border-radius-inner: 0.25rem;
+@card-height-first: 15rem;
+@card-height: 10rem;
+
+.forecast-layout {
+  padding: @gap;
+  overflow: hidden;
+  background-color: white;
+  border-radius: @border-radius-outer;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  gap: @gap @gap; 
+  grid-template-areas: 
+    "forecast-layout-top forecast-layout-top forecast-layout-top forecast-layout-top"
+    ". . . ."; 
+  .element-shadow();
+  &-top {
+    grid-area: forecast-layout-top;
+  }
+  &-card {
+    background-color: @background;
+    overflow: hidden;
+    position: relative;
+    height: @card-height;
+    // top card
+    &:first-child {
+      height: @card-height-first;
+      border-top-left-radius: @border-radius-inner;
+      border-top-right-radius: @border-radius-inner;
+    }
+    // bottom left card
+    &:nth-child(2) {
+      border-bottom-left-radius: @border-radius-inner;
+    }
+    // bottom right card
+    &:nth-child(5) {
+      border-bottom-right-radius: @border-radius-inner;
+    }
+  }
+}
