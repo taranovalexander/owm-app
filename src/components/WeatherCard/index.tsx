@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Forecast } from "../../types";
 import "./styles.less";
 
@@ -19,20 +20,26 @@ interface Props {
 
 export const WeatherCard: React.FC<Props> & { size: typeof Size; } = ({ forcast, size = Size.NORMAL }) => {
   return (
-    <div className="weather-card">
+    <div className={classNames("weather-card", { "weather-card-small": size === Size.SMALL })}>
       <div className="weather-card-content">
-        <div>{getDay(forcast.dt)}</div>
-        <i className={`owi owi-${forcast.weather[0].icon}`} />
-        <div>
-          {Math.round(forcast.temp.day)} &#176;
-        </div>
-        {
-          size === Size.NORMAL && (
-            <div>
-              {forcast.weather[0].main}
+        <div className="weather-card-date">{getDay(forcast.dt)}</div>
+        <div className="weather-card-icon-temp-block">
+          <div className="weather-card-icon">
+            <i className={`owi owi-${forcast.weather[0].icon}`} />
+          </div>
+          <div>
+            <div className="weather-card-temp ff-teko">
+              {Math.round(forcast.temp.day)} &#176;
             </div>
-          )
-        }
+            {
+              size === Size.NORMAL && (
+                <div className="weather-card-weather">
+                  {forcast.weather[0].main}
+                </div>
+              )
+            }
+          </div>
+        </div>
       </div>
     </div>
   );

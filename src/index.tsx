@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store';
 import "./assets/normalize.css";
-import "./assets/fonts/dist/css/open-weather-icons.css";
+import "./assets/fonts/owm/css/open-weather-icons.css";
 import "./assets/main.less";
 
 const root = ReactDOM.createRoot(

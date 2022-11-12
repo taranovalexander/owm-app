@@ -6,9 +6,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: @text-default;
   .place-center();
-  
-  &-content {
+
+  &-date {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  &-icon {
+    font-size: 5rem;
+    margin-right: 1rem;
+    color: #5d93c4;
+  }
+  &-temp {
+    font-size: 3.5rem;
+    color: #2c4b66;
+  }
+  &-icon-temp-block {
+    display: flex;
+  }
+}
+
+.weather-card-small {
+  font-size: @text-small;
+
+   .weather-card-icon {
+    font-size: 2.5rem;
+    margin-right: 0;
+    margin-bottom: 0.5;
+  }
+  .weather-card-temp {
+    font-size: 1.5rem;
+  }
+  .weather-card-icon-temp-block {
+    display: block;
     text-align: center;
   }
 }
