@@ -16,7 +16,7 @@ export const Tabs: React.FC<Props> = ({ children, activeTab, titles, onchange })
         {
           titles.map((title, index) => (
             <li className="tabs-head-item" key={title.index}>
-              <button className={classNames("tabs-head-item-button", { "active": index === activeTab })} type="button" onClick={() => onchange(title.index)}>{title.element}</button>
+              <button role="button" className={classNames("tabs-head-item-button", { "active": index === activeTab })} type="button" onClick={() => onchange(title.index)}>{title.element}</button>
             </li>
           ))
         }

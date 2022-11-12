@@ -1,7 +1,11 @@
 import "./styles.less";
 
-export const Placeholder = () => {
+interface Props {
+  dataTestid: string;
+}
+
+export const Placeholder: React.FC<Props> = ({ dataTestid }) => {
   return (
-    <div className="placeholder" />
+    <div data-testid={dataTestid} className="placeholder" />
   )
 }

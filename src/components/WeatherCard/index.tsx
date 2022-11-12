@@ -20,7 +20,7 @@ interface Props {
 
 export const WeatherCard: React.FC<Props> & { size: typeof Size; } = ({ forcast, size = Size.NORMAL }) => {
   return (
-    <div className={classNames("weather-card", { "weather-card-small": size === Size.SMALL })}>
+    <div data-testid={`weather-card-${forcast.dt}`} className={classNames("weather-card", { "weather-card-small": size === Size.SMALL })}>
       <div className="weather-card-content">
         <div className="weather-card-date">{getDay(forcast.dt)}</div>
         <div className="weather-card-icon-temp-block">
@@ -28,12 +28,12 @@ export const WeatherCard: React.FC<Props> & { size: typeof Size; } = ({ forcast,
             <i className={`owi owi-${forcast.weather[0].icon}`} />
           </div>
           <div>
-            <div className="weather-card-temp ff-teko">
+            <div data-testid={`weather-card-${forcast.dt}-temp`} className="weather-card-temp ff-teko">
               {Math.round(forcast.temp.day)} &#176;
             </div>
             {
               size === Size.NORMAL && (
-                <div className="weather-card-weather">
+                <div data-testid={`weather-card-${forcast.dt}-weather`} className="weather-card-weather">
                   {forcast.weather[0].main}
                 </div>
               )

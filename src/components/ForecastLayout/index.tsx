@@ -15,7 +15,7 @@ export const ForecastLayout: React.FC<Props> = ({ city }) => {
   return (
     <div className="forecast-layout">
       <div className="forecast-layout-card forecast-layout-top">
-        <PlaceholderController loading={isFetching} placeholder={<Placeholder />}>
+        <PlaceholderController loading={isFetching} placeholder={<Placeholder dataTestid="placeholder-1" />}>
           {list[0] && <WeatherCard forcast={list[0]} />}
         </PlaceholderController>
       </div>
@@ -24,22 +24,22 @@ export const ForecastLayout: React.FC<Props> = ({ city }) => {
           but I decided to render each element maually to avoid elements flickering
         */}
       <div className="forecast-layout-card">
-        <PlaceholderController loading={isFetching} placeholder={<Placeholder />}>
+        <PlaceholderController loading={isFetching} placeholder={<Placeholder dataTestid="placeholder-2" />}>
           {list[1] && <WeatherCard size={WeatherCard.size.SMALL} forcast={list[1]} />}
         </PlaceholderController>
       </div>
       <div className="forecast-layout-card">
-        <PlaceholderController loading={isFetching} placeholder={<Placeholder />}>
+        <PlaceholderController loading={isFetching} placeholder={<Placeholder dataTestid="placeholder-3" />}>
           {list[2] && <WeatherCard size={WeatherCard.size.SMALL} forcast={list[2]} />}
         </PlaceholderController>
       </div>
       <div className="forecast-layout-card">
-        <PlaceholderController loading={isFetching} placeholder={<Placeholder />}>
+        <PlaceholderController loading={isFetching} placeholder={<Placeholder dataTestid="placeholder-4" />}>
           {list[3] && <WeatherCard size={WeatherCard.size.SMALL} forcast={list[3]} />}
         </PlaceholderController>
       </div>
       <div className="forecast-layout-card">
-        <PlaceholderController loading={isFetching} placeholder={<Placeholder />}>
+        <PlaceholderController loading={isFetching} placeholder={<Placeholder dataTestid="placeholder-5" />}>
           {list[4] && <WeatherCard size={WeatherCard.size.SMALL} forcast={list[4]} />}
         </PlaceholderController>
       </div>
