@@ -5,7 +5,7 @@ import { setupStore } from "./store";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 export function renderWithProviders (
-  ui: ReactNode,
+  ui: any,
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
