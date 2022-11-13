@@ -1,24 +1,24 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { OPENWEATHERMAP_API_URL, UNITS } from "../../constants";
-import type { Coordinates, Forecast } from '../../types';
+import type { Coordinates, Forecast } from "../../types";
 
 interface GetDailyForecastResponse {
   city: {
-    id: number;
-    name: string;
-    coord: Coordinates;
-    country: string;
-    population: number;
-    timezone: number;
-  },
-  cod: string;
-  message: number;
-  cnt: number;
-  list: Forecast[];
+    id: number
+    name: string
+    coord: Coordinates
+    country: string
+    population: number
+    timezone: number
+  }
+  cod: string
+  message: number
+  cnt: number
+  list: Forecast[]
 }
 
 export const weatherApi = createApi({
-  reducerPath: 'weatherApi',
+  reducerPath: "weatherApi",
   baseQuery: fetchBaseQuery({ baseUrl: OPENWEATHERMAP_API_URL }),
   endpoints: (builder) => ({
     getDailyForecast: builder.query<GetDailyForecastResponse, Coordinates>({
@@ -28,11 +28,11 @@ export const weatherApi = createApi({
           lat: params.lat,
           lon: params.lon,
           appid: process.env.REACT_APP_OPENWEATHERMAP_API_KEY,
-          units: UNITS,
+          units: UNITS
         }
-      }),
-    }),
-  }),
+      })
+    })
+  })
 });
 
 export const { useGetDailyForecastQuery } = weatherApi;

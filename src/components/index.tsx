@@ -3,5 +3,5 @@ import { ForecastLayout } from "./ForecastLayout";
 
 export {
   Tabs,
-  ForecastLayout,
-}
+  ForecastLayout
+};

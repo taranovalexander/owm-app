@@ -1,11 +1,11 @@
 import React, { ReactNode, useEffect, useState } from "react";
 
 interface Props {
-  loading: boolean;
-  placeholder: ReactNode;
-  children: ReactNode;
-  numberOfRows?: number;
-  minTimeout?: number;
+  loading: boolean
+  placeholder: ReactNode
+  children: ReactNode
+  numberOfRows?: number
+  minTimeout?: number
 }
 
 export const PlaceholderController: React.FC<Props> = ({
@@ -13,7 +13,7 @@ export const PlaceholderController: React.FC<Props> = ({
   numberOfRows = 1,
   placeholder,
   minTimeout = 300,
-  children,
+  children
 }) => {
   const [showPlaceholder, setShowPlaceholder] = useState(loading);
   useEffect(() => {

@@ -1,17 +1,17 @@
 import { useGetDailyForecastQuery } from "../../store/services/weatherApi";
-import { City } from "../../types";
+import { City, Forecast } from "../../types";
 import { WeatherCard } from "../WeatherCard";
 import { PlaceholderController } from "../PlaceholderController";
 import { Placeholder } from "../Placeholder";
 import "./styles.less";
 
 interface Props {
-  city: City;
+  city: City
 }
 
 export const ForecastLayout: React.FC<Props> = ({ city }) => {
   const { data, isFetching } = useGetDailyForecastQuery({ lat: city.lat, lon: city.lon });
-  const list = data?.list || [];
+  const list: Forecast[] = data?.list || [];
   return (
     <div className="forecast-layout">
       <div className="forecast-layout-card forecast-layout-top">
@@ -45,4 +45,4 @@ export const ForecastLayout: React.FC<Props> = ({ city }) => {
       </div>
     </div>
   );
-}
+};

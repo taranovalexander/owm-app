@@ -4,7 +4,6 @@ export const UNITS: Units = "metric";
 
 export const OPENWEATHERMAP_API_URL = "https://api.openweathermap.org/data/2.5/";
 
-
 export const CITIES: City[] = [
   {
     name: "Bratislava",
@@ -25,5 +24,5 @@ export const CITIES: City[] = [
     lat: 41.1494512,
     lon: -8.6107884,
     country: "PT"
-  },
+  }
 ];

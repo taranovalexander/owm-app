@@ -3,5 +3,5 @@ import { useAppSelector } from "./useAppSelector";
 
 export {
   useAppDispatch,
-  useAppSelector,
-}
+  useAppSelector
+};

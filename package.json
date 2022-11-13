@@ -17,12 +17,13 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
+    "typescript": "*",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "test": "craco test",
     "eject": "craco eject"
   },
@@ -32,6 +33,16 @@
       "react-app/jest"
     ]
   },
+  "eslintIgnore": [
+    "postcss.config.js",
+    "tailwind.config.js",
+    "craco.config.js",
+    "reportWebVitals.ts",
+    "react-app-env.d.ts",
+    "public/**/*.js",
+    "build/",
+    "tests/"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,7 +57,15 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
     "craco-less": "^2.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.10",
     "msw": "^0.48.1"
   }
 }

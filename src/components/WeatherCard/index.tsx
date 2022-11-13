@@ -1,10 +1,11 @@
+import React from "react";
 import classNames from "classnames";
 import { Forecast } from "../../types";
 import "./styles.less";
 
-function getDay(dt: number): string {
-  const day = new Date(dt * 1000).toLocaleString("en-US", { "weekday": "long" });
-  const today = new Date().toLocaleString("en-US", { "weekday": "long" });
+function getDay (dt: number): string {
+  const day = new Date(dt * 1000).toLocaleString("en-US", { weekday: "long" });
+  const today = new Date().toLocaleString("en-US", { weekday: "long" });
   return day === today ? "Today" : day.slice(0, 3);
 }
 
@@ -14,11 +15,11 @@ enum Size {
 }
 
 interface Props {
-  forcast: Forecast;
-  size?: Size;
+  forcast: Forecast
+  size?: Size
 }
 
-export const WeatherCard: React.FC<Props> & { size: typeof Size; } = ({ forcast, size = Size.NORMAL }) => {
+export const WeatherCard: React.FC<Props> & { size: typeof Size } = ({ forcast, size = Size.NORMAL }: Props) => {
   return (
     <div data-testid={`weather-card-${forcast.dt}`} className={classNames("weather-card", { "weather-card-small": size === Size.SMALL })}>
       <div className="weather-card-content">
@@ -43,6 +44,6 @@ export const WeatherCard: React.FC<Props> & { size: typeof Size; } = ({ forcast,
       </div>
     </div>
   );
-}
+};
 
 WeatherCard.size = Size;

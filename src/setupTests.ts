@@ -1,11 +1,10 @@
 
-import '@testing-library/jest-dom';
-import { server } from './mocks/api/server'
-import { weatherApi } from './store/services/weatherApi';
-import { setupStore } from './store';
+import "@testing-library/jest-dom";
+import { server } from "./mocks/api/server";
+import { weatherApi } from "./store/services/weatherApi";
+import { setupStore } from "./store";
 
 const store = setupStore({});
-
 
 // Establish API mocking before all tests.
 beforeAll(() => {

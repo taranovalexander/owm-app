@@ -2,7 +2,7 @@ import { CITIES } from "./constants";
 import { Tabs, ForecastLayout } from "./components";
 import { useState } from "react";
 
-function App() {
+function App () {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <div className="app">

@@ -1,20 +1,19 @@
 
-import { screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from "@testing-library/react";
 import { forecastResponse } from "../mocks/api/handler";
-import { renderWithProviders } from '../test-utils'
+import { renderWithProviders } from "../test-utils";
 import App from "../App";
 import { CITIES } from "../constants";
 
-test('test weather app', async () => {
+test("test weather app", async () => {
   renderWithProviders(<App />);
 
   // should show no weather initially, only placeholders
-  expect(screen.getByTestId(`placeholder-1`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-2`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-3`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-4`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-5`)).toBeInTheDocument();
-
+  expect(screen.getByTestId("placeholder-1")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-2")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-3")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-4")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-5")).toBeInTheDocument();
 
   // after some time, the weather should be received
   for (let i = 0; i <= 4; i += 1) {
@@ -28,10 +27,9 @@ test('test weather app', async () => {
 
   // should show placeholders while data is loading after user clicks to another tab
   fireEvent.click(screen.getByRole("button", { name: CITIES[1].name }));
-  expect(screen.getByTestId(`placeholder-1`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-2`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-3`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-4`)).toBeInTheDocument();
-  expect(screen.getByTestId(`placeholder-5`)).toBeInTheDocument();
-
+  expect(screen.getByTestId("placeholder-1")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-2")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-3")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-4")).toBeInTheDocument();
+  expect(screen.getByTestId("placeholder-5")).toBeInTheDocument();
 });

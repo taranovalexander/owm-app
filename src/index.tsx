@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { setupStore } from './store';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { setupStore } from "./store";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import "./assets/normalize.css";
 import "./assets/fonts/owm/css/open-weather-icons.css";
 import "./assets/main.less";
@@ -11,7 +11,7 @@ import "./assets/main.less";
 const store = setupStore({});
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
