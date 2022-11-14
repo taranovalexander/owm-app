@@ -1,4 +1,6 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { Transition } from "react-transition-group";
+import React, { ReactNode, useEffect, useState, useRef } from "react";
+import "./styles.less";
 
 interface Props {
   loading: boolean
@@ -8,28 +10,52 @@ interface Props {
   minTimeout?: number
 }
 
+const animationTime = 100;
+
+const defaultStyle = {
+  transition: `opacity ${animationTime}ms ease-in-out`,
+  opacity: 1,
+};
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 1 },
+  exited: { opacity: 0 },
+};
+
+type TransitionState = "entering" | "entered" | "exiting" | "exited";
+
+
 export const PlaceholderController: React.FC<Props> = ({
   loading,
-  numberOfRows = 1,
   placeholder,
   minTimeout = 300,
   children
 }) => {
+  const nodeRef = useRef(null);
   const [showPlaceholder, setShowPlaceholder] = useState(loading);
   useEffect(() => {
     if (!loading) {
       setTimeout(() => {
-        setShowPlaceholder(loading);
+        setShowPlaceholder(false);
       }, minTimeout);
     } else {
-      setShowPlaceholder(loading);
+      setShowPlaceholder(true);
     }
   }, [loading, minTimeout]);
   return (
     <div>
+      <Transition in={showPlaceholder} nodeRef={nodeRef} timeout={animationTime}>
+        {state => (
+          <div className="placeholder-controller" style={{ ...defaultStyle, ...transitionStyles[state as TransitionState] }} ref={nodeRef}>
+            {placeholder}
+          </div>
+        )}
+      </Transition>
       {
-        showPlaceholder ? [...new Array(numberOfRows)].map((_, i) => i).map((key) => <React.Fragment key={key}>{placeholder}</React.Fragment>) : children
-    }
+        !showPlaceholder && children
+      }
     </div>
   );
 };
