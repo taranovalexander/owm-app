@@ -30,7 +30,7 @@ type TransitionState = "entering" | "entered" | "exiting" | "exited";
 export const PlaceholderController: React.FC<Props> = ({
   loading,
   placeholder,
-  minTimeout = 300,
+  minTimeout = 100,
   children
 }) => {
   const nodeRef = useRef(null);
